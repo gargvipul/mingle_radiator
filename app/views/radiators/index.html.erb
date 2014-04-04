@@ -1,0 +1,21 @@
+<h1>Listing radiators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @radiators.each do |radiator| %>
+		<h2><%= radiator[:name] %></h2><br/>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Radiator', new_radiator_path %>
