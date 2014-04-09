@@ -1,10 +1,25 @@
 class RadiatorsController < ApplicationController
   before_action :set_radiator, only: [:show, :edit, :update, :destroy]
+  
+  include Crack
+  include Utils
 
   # GET /radiators
   # GET /radiators.json
-  def index
-    @radiators = people
+
+  def index  
+
+    base_url = "https://mingle.mingle.thoughtworks.com"
+    project_url = '/api/v2/projects.xml'
+
+    mingle_projects = {}
+    mingle_pages = {}
+  
+    response = get_response(base_url + project_url)
+    response_body = Crack::XML.parse(response.body)["projects"]
+    response_body.each {|a| mingle_projects.merge!  a["identifier"] => a["name"] }
+    
+    @radiators = mingle_projects
   end
 
   # GET /radiators/1

@@ -16,7 +16,7 @@ response = get_response(base_url + project_url)
 response_body = Crack::XML.parse(response.body)["projects"]
 response_body.each {|a| mingle_projects.merge!  a["identifier"] => a["name"] }
 
-# mingle_projects.each {|id, name| puts "id: #{id} name: #{name}"}
+  mingle_projects.each {|id, name| puts "id: #{id} name: #{name}"}
 
 project_id = "new_scrum_project"
 

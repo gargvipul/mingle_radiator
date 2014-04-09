@@ -45,4 +45,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem "crack"
-gem "api_auth"
+gem "api-auth"
