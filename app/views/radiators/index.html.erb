@@ -9,13 +9,25 @@
   </thead>
 
   <tbody>
-	  <label> Projects: </label>
-<select>
-    <% @radiators.each do |radiator| %>
-	<option><%= radiator[1] %></option>
+	  <tr>
+		  <td><label> Projects: </label></td>
+		  <td><select>
+			  <% @radiators.each do |radiator| %>
+			  <option value='<%= radiator[0] %>'><%= radiator[1] %></option>
+			  <% end %>
+		  </select></td>
+	  </tr>
 
-    <% end %>
-</select>
+	  <tr>
+		  <td><label> Pages: </label></td>
+		  <td><select>
+			  <option/>
+		  </select></td>  
+	  </tr>
+
+	  <tr>
+	  	<td><button type="button">Click Me!</button></td>
+	  </tr>
   </tbody>
 </table>
 
