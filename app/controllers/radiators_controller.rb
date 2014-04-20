@@ -9,7 +9,7 @@ class RadiatorsController < ApplicationController
 
   def index  
 
-    base_url = "https://mingle.mingle.thoughtworks.com"
+    base_url = "https://vipul.mingle.thoughtworks.com"
     project_url = '/api/v2/projects.xml'
 
     mingle_projects = {}

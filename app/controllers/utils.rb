@@ -2,8 +2,8 @@ module Utils
   
   def get_response(url)
     
-    access_key_id = "test_user"
-    secret_access_key = "po4eDFWw/PjNwImfmK6dBhxIzaYqLnCwecAAiGRRjDY="
+    access_key_id = "vgarg"
+    secret_access_key = "Cs3J5wDLR699Tp7NJTuuVkxP4DyHaZqPB0YlWo9rM5I="
     
     
     uri = URI.parse(url)
