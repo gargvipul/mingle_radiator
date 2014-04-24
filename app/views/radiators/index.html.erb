@@ -11,7 +11,9 @@
   <tbody>
 	  <tr>
 		  <td><label> Projects: </label></td>
-		  <td><select>
+		  <td><select id="projects">
+			  <option/>
+			  
 			  <% @radiators.each do |radiator| %>
 			  <option value='<%= radiator[0] %>'><%= radiator[1] %></option>
 			  <% end %>
@@ -20,7 +22,7 @@
 
 	  <tr>
 		  <td><label> Pages: </label></td>
-		  <td><select>
+		  <td><select id="wikis">
 			  <option/>
 		  </select></td>  
 	  </tr>

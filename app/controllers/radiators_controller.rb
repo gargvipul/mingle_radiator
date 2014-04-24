@@ -1,5 +1,5 @@
 class RadiatorsController < ApplicationController
-  before_action :set_radiator, only: [:show, :edit, :update, :destroy]
+  before_action :set_radiator, only: [:edit, :update, :destroy]
   
   include Crack
   include Utils
@@ -25,6 +25,16 @@ class RadiatorsController < ApplicationController
   # GET /radiators/1
   # GET /radiators/1.json
   def show
+    project_id = params.permit(:id)[:id]
+    base_url = "https://vipul.mingle.thoughtworks.com"
+    pages_url = "/api/v2/projects/#{project_id}/wiki.xml"
+    response = get_response(base_url + pages_url)
+    response_body = Crack::XML.parse(response.body)["pages"]
+    @pages = response_body.collect {|a| {:identifier => a["identifier"], :name => a["name"] } }
+    render :json => @pages
+  end
+  
+  def wikis
   end
 
   # GET /radiators/new
