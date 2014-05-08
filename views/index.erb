@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+	  <tr>
+		  <td><label> Projects: </label></td>
+		  <td><select id="projects">
+			  <option/>
+			  
+			  <% radiators.each do |radiator| %>
+			  <option value='<%= radiator[0] %>'><%= radiator[1] %></option>
+			  <% end %>
+		  </select></td>
+	  </tr>
+
+	  <tr>
+		  <td><label> Pages: </label></td>
+		  <td><select id="wikis">
+			  <option/>
+		  </select></td>  
+	  </tr>
+
+	  <tr>
+	  	<td><button type="button">Click Me!</button></td>
+	  </tr>
+  </tbody>
+</table>
