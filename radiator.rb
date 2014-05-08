@@ -18,17 +18,16 @@ get '/projects' do
   response_body.each {|a| mingle_projects.merge!  a["identifier"] => a["name"] }
   
   @radiators = mingle_projects
-  erb :index, :locals => {:radiators => @radiators}
+  erb :index, :locals => {:radiators => @radiators, :pages => []}
 end
 
-get "/show" do
-  project_id = params.permit(:id)[:id]
+get "/show/:id" do |project_id|  
   base_url = "https://vipul.mingle.thoughtworks.com"
   pages_url = "/api/v2/projects/#{project_id}/wiki.xml"
   response = get_response(base_url + pages_url)
   response_body = Crack::XML.parse(response.body)["pages"]
   @pages = response_body.collect {|a| {:identifier => a["identifier"], :name => a["name"] } }
-  render :json => @pages
+  return @pages
 end
 
 
